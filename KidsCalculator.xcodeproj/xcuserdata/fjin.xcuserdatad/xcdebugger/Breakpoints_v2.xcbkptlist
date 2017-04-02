@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "KidsCalculator/ViewController.swift"
-            timestampString = "512830664.866831"
+            timestampString = "512831689.517238"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "71"
-            endingLineNumber = "71"
+            startingLineNumber = "79"
+            endingLineNumber = "79"
             landmarkName = "equalsClicked(_:)"
             landmarkType = "7">
          </BreakpointContent>

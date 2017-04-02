@@ -67,8 +67,16 @@ class ViewController: UIViewController {
     @IBAction func equalsClicked(_ sender: UIButton){
         currentStatus = CalculatorState.NEW_START
         
+        let expression = NSExpression(format:resultLabel.text!)
+        if let result = expression.expressionValue(with: nil, context: nil) as? NSNumber {
+            print(result)
+            resultLabel.text = String("\(result)")
+        } else {
+            print("error evaluating expression")
+            resultLabel.text = "Error"
+        }
         
-        resultLabel.text = String(Double("\( resultLabel.text! )")!)
+        
         
     }
     
