@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Foundation
 
 class ViewController: UIViewController {
 
@@ -66,16 +67,23 @@ class ViewController: UIViewController {
     
     @IBAction func equalsClicked(_ sender: UIButton){
         currentStatus = CalculatorState.NEW_START
-        
-        let expression = NSExpression(format:resultLabel.text!)
-        if let result = expression.expressionValue(with: nil, context: nil) as? NSNumber {
-            print(result)
-            resultLabel.text = String("\(result)")
-        } else {
-            print("error evaluating expression")
-            resultLabel.text = "Error"
+        if((resultLabel.text?.hasPrefix("*"))! || (resultLabel.text?.hasPrefix("/"))!)
+        {
+            resultLabel.text = "error"
+            return
         }
+        let equation = "1.0*\(resultLabel.text!)"
         
+        print(equation)
+        
+        let expr = NSExpression(format: equation)
+        if let result = expr.expressionValue(with: nil, context: nil) as? NSNumber {
+            let x = result.doubleValue
+            print(x)
+            resultLabel.text = String(x)
+        } else {
+            print("failed")
+        }
         
         
     }
